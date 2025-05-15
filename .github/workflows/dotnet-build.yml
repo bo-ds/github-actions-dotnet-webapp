@@ -1,0 +1,17 @@
+name: executar a cada hora em push
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  meu_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      - name: Fazer alguma coisa
+        run: echo "Este workflow foi executado por um evento de push ou agendamento!"
